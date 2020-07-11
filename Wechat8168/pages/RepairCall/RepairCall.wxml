@@ -1,0 +1,172 @@
+<view class="page" data-weui-theme="{{theme}}">
+  <form bindsubmit="handleSubmit">
+    <view class="weui-form">
+      <view class="weui-form__control-area my-form">
+        <view class="weui-cells__group weui-cells__group_form">
+          <view class="weui-cells__title">设施报修</view>
+          <view class="weui-cells weui-cells_form">
+            <view class="weui-cell weui-cell_active">
+              <view class="weui-cell__hd"><label class="weui-label" >报修位置</label></view>
+              <view class="weui-cell__bd">
+                <input class="weui-input" disabled="true" value="{{fName}}" name="inputfName" placeholder="自动获取设施名称" placeholder-class="weui-input__placeholder" />
+              </view>
+            </view>
+            <view class="weui-cell weui-cell_active">
+              <view class="weui-cell__hd">							
+                              <label class="weui-label">位置编号</label>
+                          </view>
+              <view class="weui-cell__bd">
+                <input class="weui-input" disabled="true" value="{{fId}}" name="inputfId" placeholder="自动获取设施编号" placeholder-class="weui-input__placeholder" />
+              </view>
+            </view>
+            <view class="weui-cell weui-cell_active">
+              <view class="weui-cell__hd">							
+                              <label class="weui-label">联系电话</label>
+                          </view>
+              <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="必填" type="number" name="contactNumber" maxlength="11" value="{{fContact}}" bindinput="contactInput" placeholder-class="weui-input__placeholder" />
+              </view>
+            </view>
+
+            <view class="weui-cells__title">选择报修内容</view>
+
+            <view class="weui-form__control-area">
+              <view class="weui-cells__group weui-cells__group_form">
+                <view class="weui-cells weui-cells_checkbox">
+                            <checkbox-group name="facilityRepairItems" bindchange="repairItemCheckboxChange">
+                                <label class="weui-cell weui-cell_active weui-check__label" wx:for="{{repairItems}}" wx:key="name">
+                                    <view class="weui-cell__hd">
+                                        <checkbox
+                                            class="weui-check"
+                                            value="{{item.oid}}"
+                                            checked="{{item.checked}}"
+                                        />
+                                        <i class="weui-icon-checked"></i>
+                                    </view>
+                                    <view class="weui-cell__bd">
+                                        <view>{{item.title}}</view>
+                                    </view>
+                                </label>
+                            </checkbox-group>
+                </view>
+              </view>
+            </view>
+            
+              <!--<view class="weui-cells weui-cells_radio">
+                  <radio-group name="facilityRepairItem" class="radio-group" bindchange="repairItemChange"> 
+                  <view wx:if="{{repairItems.length > 0}}">
+                    <view class="weui-cell weui-cell_active weui-check__label" wx:for="{{repairItems}}" wx:key="oid">
+                      <view class="weui-cell__bd">
+                        <radio value="{{index}}" checked="{{item.checked}}">{{item.title}}</radio>
+                      </view>
+                    </view>
+                  </view>
+                  <view wx:else>
+                  </view>
+                </radio-group>
+              </view>-->
+
+            <view class="weui-cells__title">内容描述</view>
+              <view class="weui-cells weui-cells_form my-textarea">
+                <view class="weui-cell ">
+                  <view class="weui-cell__bd">
+                    <textarea name="repairDescription" class="weui-textarea" placeholder="请描述你所发生的问题" value="{{description}}" rows="2"></textarea>
+                    <!--<view class="weui-textarea-counter"><text>0</text>/100</view>-->
+                  </view>
+                </view>
+              </view>
+          </view>
+        </view>
+      </view>
+      <!--<button bindtap='uploadPhoto'>拍取照片</button>-->
+
+      <view class="page__bd">
+        <view class="weui-cells">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <view class="weui-uploader">
+                        <view class="weui-uploader__hd">
+                          <view class="weui-uploader__overview">
+                              <view class="weui-uploader__title">图片上传</view>
+                              <view class="weui-uploader__info">{{files.length}}/3</view>
+                          </view>
+                          <view class="weui-uploader__tips">
+                            上传提示
+                          </view>
+                        </view>
+                        <view class="weui-uploader__bd">
+                            <view class="weui-uploader__files" id="uploaderFiles">
+                                <block wx:for="{{files}}" wx:key="*this">
+                                    <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                                        <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                                    </view>
+                                </block>
+                                
+                            </view>
+                            
+                            <view wx:if="{{files.length < 3}}" class="weui-uploader__input-box">
+                                <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+      <!-- 语音录音先comment -->
+      <!-- <button class="weui-btn_disabled weui-btn_primary" bindtouchstart="start_say" bindtouchend="end_say">语音报修(未开放)</button> -->
+      <button type="primary" form-type="submit">提交</button>
+      <view class="weui-form__extra-area">
+        <view class="weui-footer">
+          <view class="weui-footer__text">业务管理人员注册请点击首页进行注册</view>
+          <view class="weui-footer__text">Copyright © 2020 SAICMOTOR</view>
+        </view>
+      </view>
+    </view>
+  </form>
+</view>
+
+<!-- 
+<form bindsubmit="handleSubmit">
+  <view class="item">
+    设施名称： <input type="text" name="facilityName" disabled="true" value="{{fName}}"></input>
+  </view>
+  <view class="item">
+    设施编号： <input type="text" name="facilitySN" disabled="true" value="{{fId}}"></input>
+  </view>
+  <view>
+    联系电话(可填)：<input type="number" name="contactNumber" maxlength="11" value="{{fContact}}" bindinput="contactInput"></input>
+  </view>
+  <view class="item1">
+    *报修内容：
+    </view>
+    <view class="item1">
+      <radio-group name="facilityRepairItem" bindchange="repairItemChange"> 
+        <view wx:if="{{repairItems.length > 0}}">
+          <view wx:for="{{repairItems}}" wx:key="oid">
+            <radio value="{{index}}" checked="{{item.checked}}">{{item.title}}</radio>
+          </view>
+        </view>
+      </view>
+      <view wx:else>
+      </view>
+
+    </radio-group>
+  </view>
+  <view>
+    报修内容（选填）：
+    </view>
+    <view>
+      报修内容（选填）：
+      </view>
+    <view class="item">
+      <view>
+      <textarea name="repairDescription">
+      </textarea>
+      </view>
+    </view>
+  </view>
+  <button bindtap='uploadPhoto'>拍选取照</button>
+  <button bindtouchstart="start_say" bindtouchend="end_say">语音报修(未开放)</button>
+  <button type="primary" form-type="submit">提交</button>
+</form> -->

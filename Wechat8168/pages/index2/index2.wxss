@@ -1,0 +1,32 @@
+/* pages/index2/index2.wxss */
+/* 导入样式 */
+/* @import "../../styles/box.wxss" */
+.RepairItem{
+  margin: 25rpx;
+  border: 1px solid black;
+  font-size: 30rpx;
+}
+.my_item{
+  align-items: center;
+}
+.star-pos {
+  margin: 10rpx;
+  display: flex;
+  flex-direction: row;
+}
+.stars{
+  width: 60rpx;
+  height: 60rpx;
+  margin-left: 40rpx;
+}
+
+.CommentBlock{
+  display: flex;
+  flex-direction: row;
+}
+.submitBTN{
+  width: 100rpx;
+  height: 100rpx;
+  margin-left: 40rpx;
+  align-self: center;
+}

@@ -1,0 +1,50 @@
+<!-- <view>报修申请</view><view>设施：{{FacilityLocation}}</view>
+<view>选择报修内容</view>
+<view wx:for="{{RepairContent}}" wx:key="index">
+<view><checkbox></checkbox>{{index}}:{{item}}</view>
+</view> -->
+<view class="page">
+  <view  wx:for="{{RepairRecords}}" wx:key="index" wx:for-item="repairRecord">
+    <view class="RepairItem" wx:if="{{!repairRecord.canceled}}">
+      <view><text>位置名称：{{repairRecord.fname}}</text></view>
+      <view><text>设施编号：{{repairRecord.fid}}</text></view>
+      <view><text>报修时间：{{repairRecord.reportTime}}</text></view>
+      <view><text>报修内容：{{repairRecord.repairItems}}</text></view>
+      <view><text>内容描述: {{repairRecord.description}}</text></view>
+      <view><text>维修状态: {{repairRecord.repairCallStatusNavigation.title}}</text></view>
+      <view wx:if="{{!repairRecord.comment==''}}"><text>管理员说明: {{repairRecord.comment}}</text></view>
+      <view wx:if="{{repairRecord.repairCallStatusNavigation.title=='已完成'}}">
+        <view class="star-title">满意度评价：{{
+          repairRecord.rate> 2 ? "满意" :
+          repairRecord.rate> 1 ? "一般" :
+          repairRecord.rate> 0 ? "不满意" : "" }}
+        </view>
+
+        <view class="CommentBlock">
+          <view class="star-pos">
+            <image class='stars' bindtap="changeColor" data-index='0' data-no="{{item}}" data-oid="{{repairRecord.oid}}" wx:for="{{stardata}}" wx:key="index" 
+                  src="{{repairRecord.rate>=item? '../../icons/star1.png': '../../icons/star0.png'}}" />
+            <!-- <view style='margin-left: 30rpx;'>{{startext[0]}}</view> -->
+          </view>
+          <view class="star-pos">
+          <image class='submitBTN' bindtap="submitRate" data-oid="{{repairRecord.oid}}"
+                src="../../icons/submit.png" />
+          </view>
+        </view>
+      </view>
+      
+
+
+      <view class="star-title">撤销报修</view>
+      <view class="star-pos">
+        <image class='stars' bindtap="cancelRepair" data-oid="{{repairRecord.oid}}"
+              src="../../icons/retrieve.png" />
+      </view>
+    </view>
+
+      
+  </view>
+
+
+</view>
+

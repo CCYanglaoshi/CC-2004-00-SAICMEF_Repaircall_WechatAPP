@@ -1,0 +1,38 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+    <text class="">{{motto}}</text>
+  </view>
+
+  <view class="weui-panel weui-panel_access">
+			<view class="weui-panel__hd">程序简介</view>
+			<view class="weui-panel__bd">
+				<view class="weui-media-box weui-media-box_text">
+					<h4 class="weui-media-box__title">功能介绍</h4>
+					<view class="weui-media-box__desc"> 本程序为安亭基地设施管理报修专用软件，可以进行扫码报修，并查看报修记录。</view>
+				</view>
+				<view class="weui-media-box weui-media-box_text">
+					<h4 class="weui-media-box__title">管理部门</h4>
+					<view class="weui-media-box__desc">制造工程部设施管理科</view>
+          <view class="weui-media-box__desc">联系人：XXX 联系电话：136666666666</view>
+          <view class="weui-media-box__desc">联系邮箱：XXX.YYYY@saicmotor.com</view>
+				</view>
+			</view>
+		</view>
+  <view>
+        <button type="primary" bindtap="goToRegist">注册管理</button>
+  </view>
+  <!-- <view>
+    <button wx:if="{{!hasPhoneNumber}}" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">GetPhoneNumber</button>
+    <text wx:else>{{phoneNumber}}</text>
+  </view> -->
+  <!-- <view class="usermotto">
+    <text class="">{{motto}}</text>
+    <text class="">{{openid}}</text>
+  </view> -->
+</view>

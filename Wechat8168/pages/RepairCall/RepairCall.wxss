@@ -1,0 +1,34 @@
+input,textarea{
+  border: 1rpx solid #ccc;
+}
+.my-form{
+  display: flex;
+  margin: 5rpx;
+}
+.my-textarea{
+  height: 150rpx;}
+.item1{
+  display: flex;
+  margin: 10rpx;
+}
+textarea {
+  height: 150rpx;
+}
+.btn1 {
+  width: 90%;
+  margin-top: 10rpx;
+  background-color:rgb(161, 109, 210);
+  color: #FFF;
+}
+.btn2 {
+  width: 90%;
+  margin-top: 10rpx;
+  background-color:gray;
+  color: #FFF;
+}
+.btn3 {
+  width: 90%;
+  margin-top: 10rpx;
+  background-color: #FFCC00;
+  color: #FFF;
+}

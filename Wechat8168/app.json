@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/regist/regist",
+    "pages/index2/index2",
+    "pages/RepairCall/RepairCall",
+    "pages/index3/index3",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#0094ff",
+    "navigationBarTitleText": "设施管理平台",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "icons/home.png",
+        "selectedIconPath": "icons/home_active.png"
+      },
+      {
+        "pagePath": "pages/RepairCall/RepairCall",
+        "text": "报修申请",
+        "iconPath": "icons/repair.png",
+        "selectedIconPath": "icons/repair_active.png"
+      },
+      {
+        "pagePath": "pages/index2/index2",
+        "text": "我的报修",
+        "iconPath": "icons/repairRecord.png",
+        "selectedIconPath": "icons/repairRecord_active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,49 @@
+<view class="page" data-weui-theme="{{theme}}">
+  <form bindsubmit="handleSubmit">
+    <view class="weui-form">
+      <view class="weui-form__control-area my-form">
+        <view class="weui-cells__group weui-cells__group_form">
+          <view class="weui-cells__title">注册用户信息</view>
+          <view class="weui-cells weui-cells_form">
+            <view class="weui-cell weui-cell_active">
+              <view class="weui-cell__hd"><label class="weui-label" >姓名</label></view>
+              <view class="weui-cell__bd">
+                <input class="weui-input" value="{{username}}" name="username" placeholder="请填写真实姓名" placeholder-class="weui-input__placeholder" />
+              </view>
+            </view>
+            <!-- <view class="weui-cell weui-cell_active">
+              <view class="weui-cell__hd">							
+                              <label class="weui-label">注册手机号</label>
+                          </view>
+              <view class="weui-cell__bd">
+                <input class="weui-input" disabled="true" value="{{fId}}" name="inputfId" placeholder="自动获取设施编号" placeholder-class="weui-input__placeholder" />
+              </view>
+            </view> -->
+            <view class="weui-cell weui-cell_active">
+              <view class="weui-cell__hd">							
+                              <label class="weui-label">注册手机号</label>
+                          </view>
+              <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="必填，真实手机号" type="number" name="RegistNumber" maxlength="11" value="{{RegistNumber}}" bindinput="contactInput" placeholder-class="weui-input__placeholder" />
+              </view>
+            
+            
+            
+            
+            </view>
+          </view>
+          <view class="weui-cells__title">注册提交后请联系管理员进行信息确认</view>
+        </view>
+      </view>
+      <view wx:if="{{username ==''}}">
+        <button type="primary" form-type="submit">提交</button>
+      </view>
+      
+      <view class="weui-form__extra-area">
+        <view class="weui-footer">
+          <view class="weui-footer__text">Copyright © 2020 SAICMOTOR</view>
+        </view>
+      </view>
+    </view>
+  </form>
+</view>
